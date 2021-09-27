@@ -1,0 +1,213 @@
+\documentclass[]{tufte-handout}
+
+% ams
+\usepackage{amssymb,amsmath}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \makeatletter
+  \@ifpackageloaded{fontspec}{}{\usepackage{fontspec}}
+  \makeatother
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \makeatletter
+  \@ifpackageloaded{soul}{
+     \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+     \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+   }{}
+  \makeatother
+
+\fi
+
+% graphix
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% booktabs
+\usepackage{booktabs}
+
+% url
+\usepackage{url}
+
+% hyperref
+\usepackage{hyperref}
+
+% units.
+\usepackage{units}
+
+
+\setcounter{secnumdepth}{-1}
+
+% citations
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+
+% pandoc syntax highlighting
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+
+% longtable
+
+% multiplecol
+\usepackage{multicol}
+
+% strikeout
+\usepackage[normalem]{ulem}
+
+% morefloats
+\usepackage{morefloats}
+
+
+% tightlist macro required by pandoc >= 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% title / author / date
+\title{Psyc 270 (aka MAMA aka R-squared)\\
+Fall 2021 Schedule}
+\author{Michael A. Erickson}
+\date{2021-09-27}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+\newthought{If you just want} to see the schedule for Psyc 270 (aka MAMA
+aka R-squared), skip down to Table 1 below.
+
+\hypertarget{set-up-schedule}{%
+\section{Set up Schedule}\label{set-up-schedule}}
+
+\newthought{This is not a great way} to enter the schedule, but since it
+is only 10 weeks, it's not that big of a deal.\footnote{One of the
+  \texttt{tidyverse}'s biggest shortcomings seems to be its awkwardness
+  in changing individual cells. The \texttt{mutate()} call doesn't make
+  nearly as much sense here as the regular R bracket notation to access
+  individual cells.}
+
+This makes a ``tibble'' (essentially a spreadsheet) filled in with one
+Tuesday date per row that says that is an Open Forum with no speaker and
+no topic. It then fills in speakers and topics as they come along.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fall\_2021 }\OtherTok{\textless{}{-}} 
+  \FunctionTok{tibble}\NormalTok{(}\AttributeTok{Date =} \FunctionTok{seq}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(}\StringTok{\textquotesingle{}2021{-}09{-}28\textquotesingle{}}\NormalTok{),}
+                    \FunctionTok{as.Date}\NormalTok{(}\StringTok{\textquotesingle{}2021{-}12{-}03\textquotesingle{}}\NormalTok{),}
+                    \AttributeTok{by =} \StringTok{\textquotesingle{}week\textquotesingle{}}\NormalTok{),}
+         \StringTok{\textasciigrave{}}\AttributeTok{Meeting Type}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{"Open Forum"}\NormalTok{, }
+         \AttributeTok{Speaker =} \StringTok{""}\NormalTok{, }\AttributeTok{Topic =} \StringTok{""}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Speaker =} \FunctionTok{case\_when}\NormalTok{(Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}09{-}28\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Sonja Lyubomirsky"}\NormalTok{,}
+                              \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Speaker),}
+         \AttributeTok{Topic =} \FunctionTok{case\_when}\NormalTok{(Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}09{-}28\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Model of Positive Psychology"}\NormalTok{,}
+                              \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Topic)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(Date)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{display-schedule}{%
+\section{Display Schedule}\label{display-schedule}}
+
+This uses \texttt{kable()} to display the ``tibble'' with nice
+formatting.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(fall\_2021, }\AttributeTok{booktabs=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{longtable=}\ConstantTok{TRUE}\NormalTok{, }
+      \AttributeTok{caption=}\StringTok{"Fall 2021 Psyc 270 (aka MAMA aka R{-}Squared) schedule."}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options=}\FunctionTok{c}\NormalTok{(}\StringTok{"repeat\_header"}\NormalTok{), }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{column\_spec}\NormalTok{(}\DecValTok{3}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\AttributeTok{width =} \FunctionTok{c}\NormalTok{(}\StringTok{"10em"}\NormalTok{, }\StringTok{"15em"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[t]{ll>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{15em}}
+\caption{\label{tab:show-sched}Fall 2021 Psyc 270 (aka MAMA aka R-Squared) schedule.}\\
+\toprule
+Date & Meeting Type & Speaker & Topic\\
+\midrule
+\endfirsthead
+\caption[]{Fall 2021 Psyc 270 (aka MAMA aka R-Squared) schedule. \textit{(continued)}}\\
+\toprule
+Date & Meeting Type & Speaker & Topic\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+2021-09-28 & Open Forum & Sonja Lyubomirsky & Model of Positive Psychology\\
+2021-10-05 & Open Forum &  & \\
+2021-10-12 & Open Forum &  & \\
+2021-10-19 & Open Forum &  & \\
+2021-10-26 & Open Forum &  & \\
+\addlinespace
+2021-11-02 & Open Forum &  & \\
+2021-11-09 & Open Forum &  & \\
+2021-11-16 & Open Forum &  & \\
+2021-11-23 & Open Forum &  & \\
+2021-11-30 & Open Forum &  & \\*
+\end{longtable}
+
+\bibliography{skeleton.bib}
+
+
+
+\end{document}

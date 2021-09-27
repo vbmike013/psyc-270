@@ -1,0 +1,70 @@
+---
+title: |
+    | Psyc 270 (aka MAMA aka R-squared)
+    | Fall 2021 Schedule
+author: "Michael A. Erickson"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+    keep_tex: yes
+  tufte::tufte_html: default
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(tufte)
+library(tidyverse)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+`r newthought("If you just want")` to see the schedule for Psyc 270 (aka MAMA aka R-squared), skip down to Table 1 below.
+
+# Set up Schedule
+
+`r newthought("This is not a great way")` to enter the schedule, but since it is only 10 weeks, it's not that big of a deal.^[One of the `tidyverse`'s biggest shortcomings seems to be its awkwardness in changing individual cells.  The `mutate()` call doesn't make nearly as much sense here as the regular R bracket notation to access individual cells.]
+
+This makes a "tibble" (essentially a spreadsheet) filled in with one Tuesday date per row that says that is an Open Forum with no speaker and no topic.  It then fills in speakers and topics as they come along.
+
+```{r make-sched}
+fall_2021 <- 
+  tibble(Date = seq(as.Date('2021-09-28'),
+                    as.Date('2021-12-03'),
+                    by = 'week'),
+         `Meeting Type` = "Open Forum", 
+         Speaker = "", Topic = "") %>%
+  mutate(Speaker = case_when(Date == '2021-09-28' ~ "Sonja Lyubomirsky",
+                              TRUE ~ Speaker),
+         Topic = case_when(Date == '2021-09-28' ~ "Model of Positive Psychology",
+                              TRUE ~ Topic)) %>%
+  arrange(Date)
+
+```
+
+
+# Display Schedule
+
+This uses `kable()` to display the "tibble" with nice formatting.
+
+```{r show-sched, warning=FALSE}
+kable(fall_2021, booktabs=TRUE, longtable=TRUE, 
+      caption="Fall 2021 Psyc 270 (aka MAMA aka R-Squared) schedule.") %>%
+  kable_styling(latex_options=c("repeat_header"), full_width = FALSE) %>%
+  column_spec(3:4, width = c("10em", "15em"))
+
+```
+
+
+```{r bib, include=FALSE}
+# create a bib file for the R packages used in this document
+knitr::write_bib(c('base', 'rmarkdown'), file = 'skeleton.bib')
+```
