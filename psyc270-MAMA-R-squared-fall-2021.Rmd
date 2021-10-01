@@ -5,11 +5,11 @@ title: |
 author: "Michael A. Erickson"
 date: "`r Sys.Date()`"
 output:
+  tufte::tufte_html: default
   tufte::tufte_handout:
     citation_package: natbib
     latex_engine: xelatex
     keep_tex: yes
-  tufte::tufte_html: default
   tufte::tufte_book:
     citation_package: natbib
     latex_engine: xelatex
@@ -43,9 +43,14 @@ fall_2021 <-
          `Meeting Type` = "Open Forum", 
          Speaker = "", Topic = "") %>%
   mutate(Speaker = case_when(Date == '2021-09-28' ~ "Sonja Lyubomirsky",
-                              TRUE ~ Speaker),
+                             Date == '2021-10-12' ~ "Roy Baumeister",
+                             Date == '2021-10-19' ~ "Calen Horton",
+                             TRUE ~ Speaker),
          Topic = case_when(Date == '2021-09-28' ~ "Model of Positive Psychology",
-                              TRUE ~ Topic)) %>%
+                           Date == '2021-10-12' ~
+                             "Multi-site Replication Attempts in Social Psychology",
+                           Date == '2021-10-19' ~ "Quant Minor Presentation",
+                           TRUE ~ Topic)) %>%
   arrange(Date)
 
 ```
