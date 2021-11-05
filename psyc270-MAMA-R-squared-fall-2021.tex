@@ -106,7 +106,7 @@
 \title{Psyc 270 (aka MAMA aka R-squared)\\
 Fall 2021 Schedule}
 \author{Michael A. Erickson}
-\date{2021-09-27}
+\date{2021-11-05}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -155,10 +155,23 @@ no topic. It then fills in speakers and topics as they come along.
                     \AttributeTok{by =} \StringTok{\textquotesingle{}week\textquotesingle{}}\NormalTok{),}
          \StringTok{\textasciigrave{}}\AttributeTok{Meeting Type}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{"Open Forum"}\NormalTok{, }
          \AttributeTok{Speaker =} \StringTok{""}\NormalTok{, }\AttributeTok{Topic =} \StringTok{""}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Speaker =} \FunctionTok{case\_when}\NormalTok{(Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}09{-}28\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Sonja Lyubomirsky"}\NormalTok{,}
-                              \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Speaker),}
+  \FunctionTok{mutate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Meeting Type}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{ifelse}\NormalTok{(Date }\SpecialCharTok{\%in\%} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}2021{-}10{-}12\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}2021{-}10{-}19\textquotesingle{}}\NormalTok{)),}
+                                 \StringTok{"Presentation"}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Meeting Type}\StringTok{\textasciigrave{}}\NormalTok{),}
+         \AttributeTok{Speaker =} \FunctionTok{case\_when}\NormalTok{(Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}09{-}28\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Sonja Lyubomirsky"}\NormalTok{,}
+\NormalTok{                             Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}10{-}12\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Roy Baumeister"}\NormalTok{,}
+\NormalTok{                             Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}10{-}19\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Calen Horton"}\NormalTok{,}
+\NormalTok{                             Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}11{-}02\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Karynna Okabe{-}Miyamoto"}\NormalTok{,}
+\NormalTok{                             Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}11{-}09\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Pavani Jonnalagadda"}\NormalTok{,}
+                             \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Speaker),}
          \AttributeTok{Topic =} \FunctionTok{case\_when}\NormalTok{(Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}09{-}28\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Model of Positive Psychology"}\NormalTok{,}
-                              \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Topic)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{                           Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}10{-}12\textquotesingle{}} \SpecialCharTok{\textasciitilde{}}
+                             \StringTok{"Multi{-}site Replication Attempts in Social Psychology"}\NormalTok{,}
+\NormalTok{                           Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}10{-}19\textquotesingle{}} \SpecialCharTok{\textasciitilde{}}
+                             \StringTok{"A Cross{-}Methodological Comparison of the Factor Structure of Situations"}\NormalTok{,}
+\NormalTok{                           Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}11{-}02\textquotesingle{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Missing Data"}\NormalTok{,}
+\NormalTok{                           Date }\SpecialCharTok{==} \StringTok{\textquotesingle{}2021{-}11{-}09\textquotesingle{}} \SpecialCharTok{\textasciitilde{}}
+                             \StringTok{"Modern Validation of a Masculinity and Femininity Scale"}\NormalTok{,}
+                           \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ Topic)) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{arrange}\NormalTok{(Date)}
 \end{Highlighting}
 \end{Shaded}
@@ -195,16 +208,31 @@ Date & Meeting Type & Speaker & Topic\\
 \endlastfoot
 2021-09-28 & Open Forum & Sonja Lyubomirsky & Model of Positive Psychology\\
 2021-10-05 & Open Forum &  & \\
-2021-10-12 & Open Forum &  & \\
-2021-10-19 & Open Forum &  & \\
+2021-10-12 & Presentation & Roy Baumeister & Multi-site Replication Attempts in Social Psychology\\
+2021-10-19 & Presentation & Calen Horton & A Cross-Methodological Comparison of the Factor Structure of Situations\\
 2021-10-26 & Open Forum &  & \\
 \addlinespace
-2021-11-02 & Open Forum &  & \\
-2021-11-09 & Open Forum &  & \\
+2021-11-02 & Open Forum & Karynna Okabe-Miyamoto & Missing Data\\
+2021-11-09 & Open Forum & Pavani Jonnalagadda & Modern Validation of a Masculinity and Femininity Scale\\
 2021-11-16 & Open Forum &  & \\
 2021-11-23 & Open Forum &  & \\
 2021-11-30 & Open Forum &  & \\*
 \end{longtable}
+
+\hypertarget{write-schedule-to-a-google-sheet}{%
+\section{Write Schedule to a Google
+Sheet}\label{write-schedule-to-a-google-sheet}}
+
+Need to work out permissions here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# ss \textless{}{-}}
+\DocumentationTok{\#\#  gs4\_create("Psyc{-}270{-}2021{-}Fall",}
+\DocumentationTok{\#\#             sheets = fall\_2021)}
+\end{Highlighting}
+\end{Shaded}
+
 
 \bibliography{skeleton.bib}
 

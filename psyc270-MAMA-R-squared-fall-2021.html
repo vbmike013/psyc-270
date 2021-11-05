@@ -12,7 +12,7 @@
 
 <meta name="author" content="Michael A. Erickson" />
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-11-05" />
 
 <title>psyc270-MAMA-R-squared-fall-2021.utf8</title>
 
@@ -64,7 +64,7 @@ if (window.hljs) {
 <h1 class="title toc-ignore"><div class="line-block">Psyc 270 (aka MAMA aka R-squared)<br />
 Fall 2021 Schedule</div></h1>
 <h4 class="author">Michael A. Erickson</h4>
-<h4 class="date">2021-10-01</h4>
+<h4 class="date">2021-11-05</h4>
 
 
 
@@ -79,14 +79,22 @@ Fall 2021 Schedule</div></h1>
                     by = &#39;week&#39;),
          `Meeting Type` = &quot;Open Forum&quot;, 
          Speaker = &quot;&quot;, Topic = &quot;&quot;) %&gt;%
-  mutate(Speaker = case_when(Date == &#39;2021-09-28&#39; ~ &quot;Sonja Lyubomirsky&quot;,
+  mutate(`Meeting Type` = ifelse(Date %in% as.Date(c(&#39;2021-10-12&#39;, &#39;2021-10-19&#39;)),
+                                 &quot;Presentation&quot;, `Meeting Type`),
+         Speaker = case_when(Date == &#39;2021-09-28&#39; ~ &quot;Sonja Lyubomirsky&quot;,
                              Date == &#39;2021-10-12&#39; ~ &quot;Roy Baumeister&quot;,
                              Date == &#39;2021-10-19&#39; ~ &quot;Calen Horton&quot;,
+                             Date == &#39;2021-11-02&#39; ~ &quot;Karynna Okabe-Miyamoto&quot;,
+                             Date == &#39;2021-11-09&#39; ~ &quot;Pavani Jonnalagadda&quot;,
                              TRUE ~ Speaker),
          Topic = case_when(Date == &#39;2021-09-28&#39; ~ &quot;Model of Positive Psychology&quot;,
                            Date == &#39;2021-10-12&#39; ~
                              &quot;Multi-site Replication Attempts in Social Psychology&quot;,
-                           Date == &#39;2021-10-19&#39; ~ &quot;Quant Minor Presentation&quot;,
+                           Date == &#39;2021-10-19&#39; ~
+                             &quot;A Cross-Methodological Comparison of the Factor Structure of Situations&quot;,
+                           Date == &#39;2021-11-02&#39; ~ &quot;Missing Data&quot;,
+                           Date == &#39;2021-11-09&#39; ~
+                             &quot;Modern Validation of a Masculinity and Femininity Scale&quot;,
                            TRUE ~ Topic)) %&gt;%
   arrange(Date)</code></pre>
 </div>
@@ -150,7 +158,7 @@ Open Forum
 2021-10-12
 </td>
 <td style="text-align:left;">
-Open Forum
+Presentation
 </td>
 <td style="text-align:left;width: 10em; ">
 Roy Baumeister
@@ -164,13 +172,13 @@ Multi-site Replication Attempts in Social Psychology
 2021-10-19
 </td>
 <td style="text-align:left;">
-Open Forum
+Presentation
 </td>
 <td style="text-align:left;width: 10em; ">
 Calen Horton
 </td>
 <td style="text-align:left;width: 10em; ">
-Quant Minor Presentation
+A Cross-Methodological Comparison of the Factor Structure of Situations
 </td>
 </tr>
 <tr>
@@ -193,8 +201,10 @@ Open Forum
 Open Forum
 </td>
 <td style="text-align:left;width: 10em; ">
+Karynna Okabe-Miyamoto
 </td>
 <td style="text-align:left;width: 10em; ">
+Missing Data
 </td>
 </tr>
 <tr>
@@ -205,8 +215,10 @@ Open Forum
 Open Forum
 </td>
 <td style="text-align:left;width: 10em; ">
+Pavani Jonnalagadda
 </td>
 <td style="text-align:left;width: 10em; ">
+Modern Validation of a Masculinity and Femininity Scale
 </td>
 </tr>
 <tr>
@@ -247,6 +259,13 @@ Open Forum
 </tr>
 </tbody>
 </table>
+</div>
+<div id="write-schedule-to-a-google-sheet" class="section level1">
+<h1>Write Schedule to a Google Sheet</h1>
+<p>Need to work out permissions here.</p>
+<pre class="r"><code>## ss &lt;-
+##  gs4_create(&quot;Psyc-270-2021-Fall&quot;,
+##             sheets = fall_2021)</code></pre>
 </div>
 
 
